@@ -60,7 +60,7 @@ public class SubjectClass extends DomainEntity{
 	
 	//Relaciones
 	private Subject subject;
-	private Cohort group;
+	private Group group;
 	
 	@Valid
 	@NotNull
@@ -75,10 +75,10 @@ public class SubjectClass extends DomainEntity{
 	@Valid
 	@NotNull
 	@ManyToOne(optional = false)
-	public Cohort getGroup() {
+	public Group getGroup() {
 		return group;
 	}
-	public void setGroup(Cohort group) {
+	public void setGroup(Group group) {
 		this.group = group;
 	}
 
