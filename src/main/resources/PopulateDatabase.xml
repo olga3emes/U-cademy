@@ -15,7 +15,6 @@
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	">
-	
 	<!-- User accounts -->
 
 	<bean id="userAccount1" class="security.UserAccount">
@@ -32,7 +31,7 @@
 
 	<bean id="userAccount2" class="security.UserAccount">
 		<property name="username" value="owner1" />
-		<property name="password" value="91ec1f9324753048c0096d036a694f86" />
+		<property name="password" value="4ef5ba0c918c537fadba2ada54e3dd68" />
 		<property name="authorities">
 			<list>
 				<bean class="security.Authority">
@@ -41,8 +40,94 @@
 			</list>
 		</property>
 	</bean>
-
+	
 	<bean id="userAccount3" class="security.UserAccount">
+		<property name="username" value="owner2" />
+		<property name="password" value="b1e3677cd7c6f633e6c08037583c846f" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="OWNER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount4" class="security.UserAccount">
+		<property name="username" value="student1" />
+		<property name="password" value="5e5545d38a68148a2d5bd5ec9a89e327" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="STUDENT" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount5" class="security.UserAccount">
+		<property name="username" value="student2" />
+		<property name="password" value="213ee683360d88249109c2f92789dbc3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="STUDENT" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount6" class="security.UserAccount">
+		<property name="username" value="student3" />
+		<property name="password" value="8e4947690532bc44a8e41e9fb365b76a" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="STUDENT" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount7" class="security.UserAccount">
+		<property name="username" value="professor1" />
+		<property name="password" value="0bc52ce6fa2635b7a93b30e4438b6c15" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="PROFESSOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount8" class="security.UserAccount">
+		<property name="username" value="professor2" />
+		<property name="password" value="b5f7cf1519e720be3f87b45faf1fd905" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="PROFESSOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount9" class="security.UserAccount">
+		<property name="username" value="professor3" />
+		<property name="password" value="3ddeb15d704e8fb6412d50ce964e7f1b" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="PROFESSOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	
+
+	<bean id="userAccount10" class="security.UserAccount">
 		<property name="username" value="super" />
 		<property name="password" value="1b3231655cebb7a1f783eddf27d254ca" />
 		<property name="authorities">
@@ -63,6 +148,522 @@
 		</property>
 	</bean>
 	
-	<!-- Other domain beans come here -->	
+	<!-- CREDIT CARDS -->
+	
+	<bean id="creditCard1" class="domain.CreditCard">
+		<property name="holderName" value="Jose Luis Pardo" />
+		<property name="brandName" value="VISA" />
+		<property name="number" value="4556156766657316" />
+		<property name="expirationMonth" value="10" />
+		<property name="expirationYear" value="2020" />
+		<property name="cvvCode" value="934" />
+	</bean>
+	
+	<bean id="creditCard2" class="domain.CreditCard">
+		<property name="holderName" value="Paco Perez" />
+		<property name="brandName" value="VISA" />
+		<property name="number" value="4556156766657316" />
+		<property name="expirationMonth" value="10" />
+		<property name="expirationYear" value="2030" />
+		<property name="cvvCode" value="744" />
+	</bean>
+	
+	<!-- LOCATION -->
+	
+	<bean id="location1" class="domain.Location">
+		<property name="lattitude" value="37.3644"/>
+		<property name="longitude" value="-5.9727"/>
+	</bean>
+	
+	<bean id="location2" class="domain.Location">
+		<property name="lattitude" value="37.358253"/>
+		<property name="longitude" value="-5.986998"/>
+	</bean>
+	
+	<!-- OWNER -->
+	<bean id="owner1" class="domain.Owner" >
+		<property name="userAccount" ref="userAccount2"/>
+		<property name="name" value="Jose Luis"/>
+		<property name="surname" value="Pardo"/>
+		<property name="email" value="Pardo@gmail.com"/>
+		<property name="phone" value="954112333"/>
+		<property name="creditCard" ref="creditCard1"/>
+		<property name="academies">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="owner2" class="domain.Owner" >
+		<property name="userAccount" ref="userAccount3"/>
+		<property name="name" value="Paco"/>
+		<property name="surname" value="Perez"/>
+		<property name="email" value="Perez@gmail.com"/>
+		<property name="phone" value="954112993"/>
+		<property name="creditCard" ref="creditCard2"/>
+		<property name="academies">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	
+	<!-- ACADEMY -->
+	<bean id="academy1" class="domain.Academy">
+		<property name="owner" ref="owner1"/>
+		<property name="name" value="Academia1"/>
+		<property name="description" value="Academia profesional"/>
+		<property name="country" value="España"/>
+		<property name="city" value="Sevilla"/>
+		<property name="address" value="Reina Mercedes"/>
+		<property name="postcode" value="41013"/>
+		<property name="phone" value="955666321"/>
+		<property name="phone2" value="954789123"/>
+		<property name="fax" value="954000111"/>
+		<property name="email" value="info@academia1.com"/>
+		<property name="location" ref="location1"/>
+		<property name="isPremium" value="true"/>
+		<property name="minPrice" value="10.0"/>
+		<property name="maxPrice" value="999.0"/>
+		<property name="tags">
+			<list>
+			<bean id="tag1" class="java.lang.String">
+				<constructor-arg value="tag1"/>
+			</bean>
+			<bean id="tag2" class="java.lang.String">
+				<constructor-arg value="tag2"/>
+			</bean>
+			<bean id="tag3" class="java.lang.String">
+				<constructor-arg value="tag3"/>
+			</bean>
+			</list>
+		</property>
+		<property name="subjects">
+			<list>
+			</list>
+		</property>
+		<property name="groups">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="academy2" class="domain.Academy">
+		<property name="owner" ref="owner1"/>
+		<property name="name" value="Academia2"/>
+		<property name="description" value="Academia nueva"/>
+		<property name="country" value="España"/>
+		<property name="city" value="Sevilla"/>
+		<property name="address" value="Parque Celestino Mutis"/>
+		<property name="postcode" value="41013"/>
+		<property name="phone" value="955000321"/>
+		<property name="phone2" value="954457823"/>
+		<property name="fax" value="954099911"/>
+		<property name="email" value="info@academia1.com"/>
+		<property name="location" ref="location2"/>
+		<property name="isPremium" value="false"/>
+		<property name="minPrice" value="10.0"/>
+		<property name="maxPrice" value="50.0"/>
+		<property name="tags">
+			<list>
+			<bean id="tag1" class="java.lang.String">
+				<constructor-arg value="tag1"/>
+			</bean>
+			<bean id="tag2" class="java.lang.String">
+				<constructor-arg value="tag2"/>
+			</bean>
+			<bean id="tag3" class="java.lang.String">
+				<constructor-arg value="tag3"/>
+			</bean>
+		
+			</list>
+		</property>
+		<property name="subjects">
+			<list>
+			</list>
+		</property>
+		<property name="groups">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- PAYMENT -->
+	<bean id="payment1" class="domain.Payment">
+		<property name="creationDate" value="01/06/2012"/>
+		<property name="price" value="999"/>
+		<property name="paid" value="true"></property>
+		<property name="academy" ref="academy1"/>
+	</bean>
+	
+	<bean id="payment2" class="domain.Payment">
+		<property name="creationDate" value="01/02/2013"/>
+		<property name="price" value="100"/>
+		<property name="paid" value="true"></property>
+		<property name="academy" ref="academy1"/>
+	</bean>
+	
+	<bean id="payment3" class="domain.Payment">
+		<property name="creationDate" value="01/01/2014"/>
+		<property name="price" value="50"/>
+		<property name="paid" value="false"></property>
+		<property name="academy" ref="academy1"/>
+	</bean>
+	
+	<bean id="payment4" class="domain.Payment">
+		<property name="creationDate" value="01/01/2015"/>
+		<property name="price" value="99"/>
+		<property name="paid" value="false"></property>
+		<property name="academy" ref="academy1"/>
+	</bean>
+	
+	<!-- PROFESSOR -->
+	<bean id="professor1" class="domain.Professor">
+		<property name="academy" ref="academy1"/>
+		<property name="userAccount" ref="userAccount7"/>
+		<property name="name" value="Antonio"/>
+		<property name="surname" value="Perez"/>
+		<property name="email" value="Perez@gmail.com"/>
+		<property name="phone" value="954112993"/>
+		<property name="skills" value="Matematicas"/>
+	</bean>
+	<bean id="professor2" class="domain.Professor">
+		<property name="academy" ref="academy1"/>
+		<property name="userAccount" ref="userAccount8"/>
+		<property name="name" value="Luisa"/>
+		<property name="surname" value="Perez"/>
+		<property name="email" value="Perez@gmail.com"/>
+		<property name="phone" value="954112993"/>
+		<property name="skills" value="DP"/>
+	</bean>
+	<bean id="professor3" class="domain.Professor">
+		<property name="academy" ref="academy1"/>
+		<property name="userAccount" ref="userAccount9"/>
+		<property name="name" value="Marta"/>
+		<property name="surname" value="Perez"/>
+		<property name="email" value="Perez@gmail.com"/>
+		<property name="phone" value="954112993"/>
+		<property name="skills" value=""/>
+	</bean>
+	
+	<!-- SUBJECT -->
+	<bean id="subject1" class="domain.Subject">
+		<property name="name" value="DP"/>
+		<property name="level" value="Alto"/>
+		<property name="price" value="99.0"/>
+		<property name="academy" ref="academy1"/>
+	</bean>
+	<bean id="subject2" class="domain.Subject">
+		<property name="name" value="ADDA"/>
+		<property name="level" value="Alto"/>
+		<property name="price" value="99.0"/>
+		<property name="academy" ref="academy1"/>
+	</bean>
+	<bean id="subject3" class="domain.Subject">
+		<property name="name" value="FFI"/>
+		<property name="level" value="Alto"/>
+		<property name="price" value="99.0"/>
+		<property name="academy" ref="academy1"/>
+	</bean>
+	<bean id="subject4" class="domain.Subject">
+		<property name="name" value="ISPP"/>
+		<property name="level" value="Alto"/>
+		<property name="price" value="99.0"/>
+		<property name="academy" ref="academy1"/>
+	</bean>
+	
+	<!-- GROUP -->
+	<bean id="group1" class="domain.Group">
+		<property name="academy" ref="academy1"/>
+		<property name="name" value="Grupo 1 IS"/>
+		<property name="startDate" value="24/09/2013"/>
+		<property name="finishDate" value="20/06/2014"/>
+		<property name="room" value="A2.10"/>
+		<property name="subjectClasses">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="group2" class="domain.Group">
+		<property name="academy" ref="academy1"/>
+		<property name="name" value="Grupo 2 IS"/>
+		<property name="startDate" value="24/09/2013"/>
+		<property name="finishDate" value="20/06/2014"/>
+		<property name="room" value="A2.10"/>
+		<property name="subjectClasses">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="group3" class="domain.Group">
+		<property name="academy" ref="academy1"/>
+		<property name="name" value="Grupo 3 SALUD"/>
+		<property name="startDate" value="24/09/2014"/>
+		<property name="finishDate" value="20/06/2015"/>
+		<property name="room" value="A2.10"/>
+		<property name="subjectClasses">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="group4" class="domain.Group">
+		<property name="academy" ref="academy1"/>
+		<property name="name" value="Grupo 4 TIS"/>
+		<property name="startDate" value="24/09/2015"/>
+		<property name="finishDate" value="20/06/2016"/>
+		<property name="room" value="A2.10"/>
+		<property name="subjectClasses">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="group5" class="domain.Group">
+		<property name="academy" ref="academy1"/>
+		<property name="name" value="Grupo 4 TIS"/>
+		<property name="startDate" value="24/09/2015"/>
+		<property name="finishDate" value="20/06/2016"/>
+		<property name="room" value="A2.10"/>
+		<property name="subjectClasses">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- SUBJECTCLASS -->
+	<bean id="subjectclass1" class="domain.SubjectClass">
+		<property name="startHour" value="12/12/2012 12:00"/>
+		<property name="finishHour" value="12/12/2012 14:00"/>
+		<property name="weekDay"><value type="domain.WeekDay">monday</value></property>
+		<property name="group" ref="group1"/>
+		<property name="subject" ref="subject1"/>
+	</bean>
+	
+	<bean id="subjectclass2" class="domain.SubjectClass">
+		<property name="startHour" value="12/12/2012 15:00"/>
+		<property name="finishHour" value="12/12/2012 17:00"/>
+		<property name="weekDay"><value type="domain.WeekDay">wednesday</value></property>
+		<property name="group" ref="group1"/>
+		<property name="subject" ref="subject1"/>
+	</bean>
+	
+	<bean id="subjectclass3" class="domain.SubjectClass">
+		<property name="startHour" value="12/12/2012 18:00"/>
+		<property name="finishHour" value="12/12/2012 20:00"/>
+		<property name="weekDay"><value type="domain.WeekDay">thursday</value></property>
+		<property name="group" ref="group2"/>
+		<property name="subject" ref="subject2"/>
+	</bean>
+	
+	<bean id="subjectclass4" class="domain.SubjectClass">
+		<property name="startHour" value="12/12/2012 09:00"/>
+		<property name="finishHour" value="12/12/2012 11:00"/>
+		<property name="weekDay"><value type="domain.WeekDay">wednesday</value></property>
+		<property name="group" ref="group3"/>
+		<property name="subject" ref="subject3"/>
+	</bean>
+	
+	<bean id="subjectclass5" class="domain.SubjectClass">
+		<property name="startHour" value="12/12/2012 17:00"/>
+		<property name="finishHour" value="12/12/2012 19:30"/>
+		<property name="weekDay"><value type="domain.WeekDay">monday</value></property>
+		<property name="group" ref="group4"/>
+		<property name="subject" ref="subject4"/>
+	</bean>
+	
+	<bean id="subjectclass6" class="domain.SubjectClass">
+		<property name="startHour" value="12/12/2012 17:00"/>
+		<property name="finishHour" value="12/12/2012 19:30"/>
+		<property name="weekDay"><value type="domain.WeekDay">friday</value></property>
+		<property name="group" ref="group4"/>
+		<property name="subject" ref="subject4"/>
+	</bean>
+	
+	<bean id="subjectclass7" class="domain.SubjectClass">
+		<property name="startHour" value="12/12/2012 10:00"/>
+		<property name="finishHour" value="12/12/2012 12:30"/>
+		<property name="weekDay"><value type="domain.WeekDay">thursday</value></property>
+		<property name="group" ref="group5"/>
+		<property name="subject" ref="subject4"/>
+	</bean>
+	
+	<bean id="subjectclass8" class="domain.SubjectClass">
+		<property name="startHour" value="12/12/2012 10:00"/>
+		<property name="finishHour" value="12/12/2012 12:30"/>
+		<property name="weekDay"><value type="domain.WeekDay">friday</value></property>
+		<property name="group" ref="group5"/>
+		<property name="subject" ref="subject4"/>
+	</bean>
+	
+	
+	<!-- FOLDER -->
+	<bean id="folder1" class="domain.Folder">
+		<property name="name" value="Folder 1"/>
+		<property name="subject" ref="subject1"/>
+		<property name="children">
+		<list>
+		</list>
+		</property>
+	</bean>
+	<bean id="folder2" class="domain.Folder">
+		<property name="name" value="Folder 2"/>
+		<property name="subject" ref="subject1"/>
+		<property name="children">
+		<list>
+		</list>
+		</property>
+	</bean>
+	<bean id="folder3" class="domain.Folder">
+		<property name="name" value="Folder 3"/>
+		<property name="subject" ref="subject1"/>
+		<property name="children">
+		<list>
+		</list>
+		</property>
+	</bean>
+	<bean id="folder4" class="domain.Folder">
+		<property name="parent" ref="folder1"/>
+		<property name="name" value="Folder 4"/>
+		<property name="subject" ref="subject1"/>
+		<property name="children">
+		<list>
+		</list>
+		</property>
+	</bean>
+	<bean id="folder5" class="domain.Folder">
+		<property name="parent" ref="folder1"/>
+		<property name="name" value="Folder 5"/>
+		<property name="subject" ref="subject1"/>
+		<property name="children">
+		<list>
+		</list>
+		</property>
+	</bean>
+	<bean id="folder6" class="domain.Folder">
+		<property name="parent" ref="folder1"/>
+		<property name="name" value="Folder 5"/>
+		<property name="subject" ref="subject2"/>
+		<property name="children">
+		<list>
+		</list>
+		</property>
+	</bean>
+	
+	<!-- STUDENT -->
+	<bean id="student1" class="domain.Student">
+		<property name="academy" ref="academy1"/>
+		<property name="userAccount" ref="userAccount4"/>
+		<property name="name" value="Estudiante"/>
+		<property name="surname" value="Estudioso"/>
+		<property name="email" value="estudioso@gmail.com"/>
+		<property name="phone" value="954632156"/>
+		<property name="address" value="C/Prueba,n 1"/>
+		<property name="dateOfBirth" value="12/02/1990"/>
+	</bean>
+	
+	<bean id="student2" class="domain.Student">
+		<property name="academy" ref="academy1"/>
+		<property name="userAccount" ref="userAccount5"/>
+		<property name="name" value="Estudiante"/>
+		<property name="surname" value="Perezoso"/>
+		<property name="email" value="perezoso@gmail.com"/>
+		<property name="phone" value="954632156"/>
+		<property name="address" value="C/Prueba,n 2"/>
+		<property name="dateOfBirth" value="12/02/1989"/>
+	</bean>
+	
+	<bean id="student3" class="domain.Student">
+		<property name="academy" ref="academy1"/>
+		<property name="userAccount" ref="userAccount6"/>
+		<property name="name" value="Estudiante"/>
+		<property name="surname" value="Extranjero"/>
+		<property name="email" value="extranjero@gmail.com"/>
+		<property name="phone" value="954632156"/>
+		<property name="address" value="C/Prueba,n 3"/>
+		<property name="dateOfBirth" value="12/02/1992"/>
+	</bean>
+	
+	<!-- INSCRIPTION -->
+	<bean id="inscription1" class="domain.Inscription">
+		<property name="creationMoment" value="2013/09/22"/>
+		<property name="student" ref="student1"/>
+		<property name="subject" ref="subject1"/>
+	</bean>
+	
+	<bean id="inscription2" class="domain.Inscription">
+		<property name="creationMoment" value="2013/09/22"/>
+		<property name="student" ref="student1"/>
+		<property name="subject" ref="subject2"/>
+	</bean>
+	
+	<bean id="inscription3" class="domain.Inscription">
+		<property name="creationMoment" value="2014/09/23"/>
+		<property name="student" ref="student1"/>
+		<property name="subject" ref="subject3"/>
+	</bean>
+	
+	<bean id="inscription4" class="domain.Inscription">
+		<property name="creationMoment" value="2014/09/23"/>
+		<property name="student" ref="student2"/>
+		<property name="subject" ref="subject3"/>
+	</bean>
+	
+	<!-- ASSESSMENT -->
+	<bean id="assessment1" class="domain.Assessment">
+		<property name="student" ref="student1"/>
+		<property name="academy" ref="academy1"/>
+		<property name="assessment" value="2"/>
+		<property name="assessmentDate" value="2014/10/30"/>
+	</bean>
+	<bean id="assessment2" class="domain.Assessment">
+		<property name="student" ref="student2"/>
+		<property name="academy" ref="academy1"/>
+		<property name="assessment" value="4.5"/>
+		<property name="assessmentDate" value="2014/06/17"/>
+	</bean>
+	
+	<!-- INVOICE -->
+	<bean id="invoice1" class="domain.Invoice">
+		<property name="student" ref="student1"/>
+		<property name="totalPrice" value="198.0"/>
+		<property name="registrationPrice" value="0.0"/>
+		<property name="comment" value="Prueba de factura"/>
+		<property name="creationMoment" value="2013/09/22"/>
+	</bean>
+	
+	<bean id="invoice2" class="domain.Invoice">
+		<property name="student" ref="student1"/>
+		<property name="totalPrice" value="99.0"/>
+		<property name="registrationPrice" value="0.0"/>
+		<property name="comment" value="Prueba de factura"/>
+		<property name="creationMoment" value="2014/09/24"/>
+	</bean>
+	
+	<!-- NOTIFICATION -->
+	<bean id="notification1" class="domain.Notification">
+		<property name="professor" ref="professor1"/>
+		<property name="student" ref="student1"/>
+		<property name="body" value="Notification 1"/>
+		<property name="creationDate" value="2013/10/19"/>
+	</bean>
+	
+	<bean id="notification2" class="domain.Notification">
+		<property name="professor" ref="professor1"/>
+		<property name="student" ref="student1"/>
+		<property name="body" value="Notification 2"/>
+		<property name="creationDate" value="2013/11/15"/>
+	</bean>
+	
+	<bean id="notification3" class="domain.Notification">
+		<property name="professor" ref="professor1"/>
+		<property name="student" ref="student1"/>
+		<property name="body" value="Notification 3"/>
+		<property name="creationDate" value="2013/12/24"/>
+	</bean>
 	
 </beans>

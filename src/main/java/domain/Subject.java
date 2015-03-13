@@ -7,6 +7,7 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.Digits;
@@ -67,6 +68,8 @@ public class Subject extends DomainEntity{
 	private Collection<Inscription> inscriptions;
 	private Collection<Folder> folders;
 	private Collection<SubjectClass> subjectClasses;
+	private Academy academy;
+	
 	@Valid
 	@NotNull
 	@ManyToMany()
@@ -106,6 +109,16 @@ public class Subject extends DomainEntity{
 	}
 	public void setSubjectClasses(Collection<SubjectClass> subjectClasses) {
 		this.subjectClasses = subjectClasses;
+	}
+	
+	@NotNull
+	@Valid
+	@ManyToOne(optional=false)
+	public Academy getAcademy(){
+		return academy;
+	}
+	public void setAcademy(Academy academy){
+		this.academy=academy;
 	}
 
 	

@@ -43,9 +43,9 @@ public class Folder extends DomainEntity{
 	private Collection<Folder> children;
 	private Collection<File> files;
 	private Subject subject;
-	@NotNull
+	
 	@Valid
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = true)
 	public Folder getParent() {
 		return parent;
 	}

@@ -172,12 +172,12 @@ public class Academy extends DomainEntity{
 		}
 
 
-		public boolean isPremium() {
+		public boolean getIsPremium() {
 			return isPremium;
 		}
 
 
-		public void setPremium(boolean isPremium) {
+		public void setIsPremium(boolean isPremium) {
 			this.isPremium = isPremium;
 		}
 
@@ -220,6 +220,8 @@ public class Academy extends DomainEntity{
 		private Collection<Student> students;
 		private Collection<Assessment> assessments;
 		private Collection<Payment> payments;
+		private Collection<Subject> subjects;
+		private Collection<Group> groups;
 		
 		@Valid
 		@NotNull
@@ -279,6 +281,26 @@ public class Academy extends DomainEntity{
 
 		public void setPayments(Collection<Payment> payments) {
 			this.payments = payments;
+		}
+		
+		@NotNull
+		@Valid
+		@OneToMany(mappedBy="academy")
+		public Collection<Subject> getSubjects(){
+			return subjects;
+		}
+		public void setSubjects(Collection<Subject>subjects){
+			this.subjects=subjects;
+		}
+		
+		@NotNull
+		@Valid
+		@OneToMany(mappedBy="academy")
+		public Collection<Group> getGroups(){
+			return groups;
+		}
+		public void setGroups(Collection<Group> groups){
+			this.groups=groups;
 		}
 
 

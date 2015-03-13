@@ -7,6 +7,7 @@ import java.util.Date;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -68,6 +69,7 @@ public class Group extends DomainEntity{
 	}
 	//Relaciones
 	private Collection<SubjectClass> subjectClasses;
+	private Academy academy;
 
 	@Valid
 	@NotNull
@@ -78,6 +80,17 @@ public class Group extends DomainEntity{
 	public void setSubjectClasses(Collection<SubjectClass> subjectClasses) {
 		this.subjectClasses = subjectClasses;
 	}
+	
+	@NotNull
+	@Valid
+	@ManyToOne(optional=false)
+	public Academy getAcademy(){
+		return academy;
+	}
+	public void setAcademy(Academy academy){
+		this.academy=academy;
+	}
+
 
 	
 }
