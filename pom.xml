@@ -17,8 +17,8 @@
 
 	<!-- Artifact identification and properties -->
 
-	<groupId>Design-and-Testing</groupId>
-	<artifactId>Sample</artifactId>
+	<groupId>U-cademy</groupId>
+	<artifactId>U-cademy</artifactId>
 	<version>1.4</version>
 	<packaging>war</packaging>
 	
@@ -28,9 +28,9 @@
 
 	<!-- Indexing information -->
 
-	<name>Sample Project</name>
-	<url>http://www.sample-project.com</url>
-	<description>This is D&amp;T's sample project.</description>
+	<name>U-cademy</name>
+	<url>http://www.U-cademy.com</url>
+	<description>This is U-cademy.</description>
 	
 	<!-- Build commands -->
 

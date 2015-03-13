@@ -24,19 +24,19 @@
 		<property name="authorities">
 			<list>
 				<bean class="security.Authority">
-					<property name="authority" value="ADMIN" />
+					<property name="authority" value="ADMINISTRATOR" />
 				</bean>
 			</list>
 		</property>
 	</bean>
 
 	<bean id="userAccount2" class="security.UserAccount">
-		<property name="username" value="customer" />
+		<property name="username" value="owner1" />
 		<property name="password" value="91ec1f9324753048c0096d036a694f86" />
 		<property name="authorities">
 			<list>
 				<bean class="security.Authority">
-					<property name="authority" value="CUSTOMER" />
+					<property name="authority" value="OWNER" />
 				</bean>
 			</list>
 		</property>
@@ -48,10 +48,16 @@
 		<property name="authorities">
 			<list>
 				<bean class="security.Authority">
-					<property name="authority" value="ADMIN" />
+					<property name="authority" value="ADMINISTRATOR" />
 				</bean>
 				<bean class="security.Authority">
-					<property name="authority" value="CUSTOMER" />
+					<property name="authority" value="OWNER" />
+				</bean>
+				<bean class="security.Authority">
+					<property name="authority" value="PROFESSOR" />
+				</bean>
+				<bean class="security.Authority">
+					<property name="authority" value="STUDENT" />
 				</bean>
 			</list>
 		</property>
