@@ -546,7 +546,7 @@
 	</bean>
 	<bean id="folder6" class="domain.Folder">
 		<property name="parent" ref="folder1"/>
-		<property name="name" value="Folder 5"/>
+		<property name="name" value="Folder 6"/>
 		<property name="subject" ref="subject2"/>
 		<property name="children">
 		<list>
