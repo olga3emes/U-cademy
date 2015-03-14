@@ -22,6 +22,44 @@
 			Add your own converters using entries of the following form: 
 			<bean class="converters.Class1ToClass2" /> 
 		-->
+		<!-- sth to String -->
+		<bean class="converters.AcademyToStringConverter" />
+		<bean class="converters.ActorToStringConverter" />
+		<bean class="converters.AdministratorToStringConverter" />
+		<bean class="converters.AssessmentToStringConverter" />
+		<bean class="converters.AuthorityToStringConverter" />
+		<bean class="converters.FileToStringConverter" />
+		<bean class="converters.FolderToStringConverter" />
+		<bean class="converters.GroupToStringConverter" />
+		<bean class="converters.InscriptionToStringConverter" />
+		<bean class="converters.InvoiceToStringConverter" />
+		<bean class="converters.NotificationToStringConverter" />
+		<bean class="converters.OwnerToStringConverter" />
+		<bean class="converters.PaymentToStringConverter" />
+		<bean class="converters.ProfessorToStringConverter" />
+		<bean class="converters.StudentToStringConverter" />
+		<bean class="converters.SubjectToStringConverter" />
+		<bean class="converters.SubjectClassToStringConverter" />
+		
+		<!-- String to sth -->
+		<bean class="converters.StringToAcademyConverter" />
+		<bean class="converters.StringToActorConverter" />
+		<bean class="converters.StringToAdministratorConverter" />
+		<bean class="converters.StringToAssessmentConverter" />
+		<bean class="converters.StringToAuthorityConverter" />
+		<bean class="converters.StringToFileConverter" />
+		<bean class="converters.StringToFolderConverter" />
+		<bean class="converters.StringToGroupConverter" />
+		<bean class="converters.StringToInscriptionConverter" />
+		<bean class="converters.StringToInvoiceConverter" />
+		<bean class="converters.StringToNotificationConverter" />
+		<bean class="converters.StringToOwnerConverter" />
+		<bean class="converters.StringToPaymentConverter" />
+		<bean class="converters.StringToProfessorConverter" />
+		<bean class="converters.StringToStudentConverter" />
+		<bean class="converters.StringToSubjectConverter" />
+		<bean class="converters.StringToSubjectClassConverter" />
+		
 	</util:list>
 	
 </beans>
