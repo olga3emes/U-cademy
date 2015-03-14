@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Access(AccessType.PROPERTY)
 
@@ -23,7 +25,7 @@ public class File extends DomainEntity{
 	private Date uploadMoment;
 	private byte[] data;
 	private String mediaType;
-
+	private String name;
 	
 	
 	@Lob
@@ -58,6 +60,17 @@ public class File extends DomainEntity{
 		this.uploadMoment = uploadMoment;
 	}
 	
+	@NotBlank
+	public String getName() {
+		return name;
+	}
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	//Relaciones
 	private Folder folder;
 
