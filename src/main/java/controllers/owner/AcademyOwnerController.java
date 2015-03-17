@@ -25,7 +25,8 @@ public class AcademyOwnerController extends AbstractController {
 	
 	@Autowired
 	private AcademyService academyService;
-	@Autowired
+	
+	//@Autowired
 	//private OwnerService ownerService;
 	
 	// Constructors -----------------------------------------------------------

@@ -85,5 +85,9 @@ public class AcademyService {
 			
 			return result;
 		}
+		
+		public Collection<Academy> search(String s){
+			return academyRepository.searchByCityOrTags(s);
+		}
 
 }
