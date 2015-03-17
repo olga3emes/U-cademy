@@ -57,5 +57,15 @@ function myFunction() {
 	<spring:message code="academy.minPrice" var="minPrice" />
 	<display:column property="minPrice" title="${minPrice}"
 		sortable="true" />
+	
+	<display:column>
+		<jstl:forEach var="tag" items="${row.tags}">
+			<jstl:out value="${tag}"/>
+		</jstl:forEach>
+	</display:column>
+	
+	
+		
+	
 		
 </display:table>
