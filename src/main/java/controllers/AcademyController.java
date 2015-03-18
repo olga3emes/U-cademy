@@ -36,7 +36,7 @@ public class AcademyController extends AbstractController{
 			ModelAndView result;
 			Collection<Academy> academies;
 			
-			academies= academyService.search(s);
+			academies= academyService.search2(s);
 			
 			result = new ModelAndView("academy/search");
 			result.addObject("academies", academies);

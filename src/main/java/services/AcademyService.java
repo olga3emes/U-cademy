@@ -1,5 +1,6 @@
 package services;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -111,6 +112,21 @@ public class AcademyService {
 		
 		public Collection<Academy> search(String s){
 			return academyRepository.searchByCityOrTags(s);
+		}
+		
+		public Collection<Academy> search2(String s){
+			Collection<Academy>res=new ArrayList<Academy>();
+			for(Academy a: academyRepository.findAll()){
+				if(a.getCity().toLowerCase().contains(s.toLowerCase())){
+					res.add(a);
+				}
+				for(String tag:a.getTags()){
+					if(tag.toLowerCase().contains(s.toLowerCase())&&!res.contains(a)){
+						res.add(a);
+					}
+				}
+			}
+			return res;
 		}
 		
 		public Collection<Academy> findAcademyByOwner(int ownerId){
