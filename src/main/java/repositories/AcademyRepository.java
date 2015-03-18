@@ -13,6 +13,9 @@ import domain.Academy;
 @Repository
 public interface AcademyRepository extends JpaRepository<Academy, Integer> {
 	
+	@Query("select a from Academy a where a.owner.id = ?1")
+	Collection<Academy> findAcademyByOwner(int ownerId);
+	
 	@Query("select a from Academy a where a.city like %?1% or %?1% in a.tags")
 	Collection<Academy> searchByCityOrTags(String s);
 

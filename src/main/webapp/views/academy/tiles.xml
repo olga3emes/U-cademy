@@ -7,9 +7,14 @@
        
 <tiles-definitions>
 
+	<definition name="academy/list" extends="master.page">	
+		<put-attribute name="title" value="List of academies" />
+		<put-attribute name="body" value="/views/academy/list.jsp" />
+	</definition>
+	
 	<definition name="academy/create" extends="master.page">	
 		<put-attribute name="title" value="Create an academy" />
-		<put-attribute name="body" value="/views/academy/create.jsp" />
+		<put-attribute name="body" value="/views/academy/edit.jsp" />
 	</definition>
 	
 	<definition name="academy/search" extends="master.page">	

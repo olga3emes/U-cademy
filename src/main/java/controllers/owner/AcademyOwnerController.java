@@ -3,16 +3,22 @@ package controllers.owner;
 
 import java.util.Collection;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.ServletRequestDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.AcademyService;
+import services.OwnerService;
 import controllers.AbstractController;
 import domain.Academy;
 import forms.AcademyForm;
@@ -27,7 +33,7 @@ public class AcademyOwnerController extends AbstractController {
 	private AcademyService academyService;
 	
 	//@Autowired
-	//private OwnerService ownerService;
+	private OwnerService ownerService;
 	
 	// Constructors -----------------------------------------------------------
 
@@ -36,22 +42,24 @@ public class AcademyOwnerController extends AbstractController {
 	}
 
 	// List academies ---------------------------------------------------------------		
-	/*
+	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public ModelAndView list() {
 		ModelAndView result;
-		
-		Collection<Academy> academies = academyService.findAll(ownerService.findByPrincipal());
-		
 		result = new ModelAndView("academy/list");
 		
-		result.addObject("academies", academies);
-		result.addObject("requestURI", "academy/owner/list.do");
-		
+		try {
+			Collection<Academy> academies = academyService.findAcademyByOwner(11/*ownerService.findByPrincipal().getId()*/);
+			
+			result.addObject("academies", academies);
+			result.addObject("requestURI", "academy/owner/list.do");
+		} catch (Exception e) {
+			//TODO Poner vista del error discreto
+		}
 		return result;
 		
 	}
-	*/
+	
 	// Create academy ---------------------------------------------------------------		
 
 	@RequestMapping(value="/create", method=RequestMethod.GET)
@@ -73,7 +81,8 @@ public class AcademyOwnerController extends AbstractController {
 			result = createCreateAcademyModelAndView(academyForm);
 		} else {
 			try {
-				Academy academy = academyService.reconstruct(academyForm);				
+				byte[] data = academyForm.getMultipartFile().getBytes();
+				Academy academy = academyService.reconstruct(academyForm, data);				
 				academyService.save(academy);
 				
 				result =  new ModelAndView("redirect:/list.do");
@@ -112,4 +121,11 @@ public class AcademyOwnerController extends AbstractController {
 		
 	}
 	
+	@InitBinder
+	protected void initBinder(HttpServletRequest request,
+	ServletRequestDataBinder binder) throws ServletException {
+		binder.registerCustomEditor(byte[].class,
+		new ByteArrayMultipartFileEditor());
+	}
+
 }

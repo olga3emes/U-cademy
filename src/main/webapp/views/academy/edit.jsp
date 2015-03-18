@@ -8,7 +8,7 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
-<form:form action="${actionURI}" modelAttribute="academyForm">
+<form:form action="${actionURI}" modelAttribute="academyForm" enctype="multipart/form-data">>
 
 	<form:hidden path="id"/>
 	
@@ -36,10 +36,9 @@
 	
 	<acme:textbox code="academy.maxPrice" path="maxPrice"/>
 	
-	<%-- TAGS CON SELECT AQUI --%>
+	<acme:textbox code="academy.tags" path="tags"/>
 	
-	<%-- IMAGES AQUI --%>
-	
+	<acme:file code="academy.image" path="multipartFile" />
 	
 	<br />
 	

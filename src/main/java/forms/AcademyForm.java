@@ -7,6 +7,7 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
 
 import domain.Image;
 
@@ -14,7 +15,7 @@ public class AcademyForm {
 	
 	private int id;
 	private String name;
-	private Image image;	// TODO Falta presentacion de Samu
+	private MultipartFile multipartFile;
 	private String description;
 	private String country;
 	private String city;
@@ -26,7 +27,7 @@ public class AcademyForm {
 	private String email;
 	private double minPrice;
 	private double maxPrice;
-	private String[] tags;
+	private String tags;
 
 	public int getId(){
 		return id;
@@ -44,16 +45,6 @@ public class AcademyForm {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	@Valid
-	public Image getImage() {
-		return image;
-	}
-
-
-	public void setImage(Image image) {
-		this.image = image;
 	}
 
 	@NotBlank
@@ -170,12 +161,22 @@ public class AcademyForm {
 	}
 
 
-	public String[] getTags() {
+	public String getTags() {
 		return tags;
 	}
 
 
-	public void setTags(String[] tags) {
+	public void setTags(String tags) {
 		this.tags = tags;
 	}
+	
+	public MultipartFile getMultipartFile() {
+		return multipartFile;
+	}
+
+
+	public void setMultipartFile(MultipartFile multipartFile) {
+		this.multipartFile = multipartFile;
+	}
+
 }
