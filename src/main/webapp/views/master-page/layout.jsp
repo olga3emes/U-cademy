@@ -33,6 +33,7 @@
 <link rel="stylesheet" href="styles/common.css" type="text/css">
 <link rel="stylesheet" href="styles/jmenu.css" media="screen"
 	type="text/css" />
+	<link href="styles/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="styles/displaytag.css" type="text/css">
 
 <title><tiles:insertAttribute name="title" ignore="true" /></title>
@@ -52,10 +53,10 @@
 
 <body>
 
-	<div>
+	<div id="header">
 		<tiles:insertAttribute name="header" />
 	</div>
-	<div>
+	<div id="content">
 		<h1>
 			<tiles:insertAttribute name="title" />
 		</h1>
