@@ -334,6 +334,15 @@
 			<version>2.4</version>
 		</dependency>
 		
+		<!-- Paypal dependencies -->
+		
+		<dependency>
+  			<groupId>com.paypal.sdk</groupId> 
+  			<artifactId>rest-api-sdk</artifactId> 
+  			<version>LATEST</version> 
+ 		 </dependency>
+		
+		
 	</dependencies>
 
 </project> 
